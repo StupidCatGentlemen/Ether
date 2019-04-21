@@ -11,6 +11,13 @@ module.exports.ethindex = (req, res) => {
     });
 }
 
+module.exports.energy = (req, res) => {
+  res.render("energy", 
+  {
+    title: "Energy"
+  });
+}
+
 module.exports.loginValidation = function(req, res){
   req.checkBody('email', 'Email is required.').notEmpty();
   // req.checkBody('email', 'Email is not valid').isEmail();
@@ -31,9 +38,20 @@ module.exports.loginValidation = function(req, res){
 
       collection.findOne({username : params.username},(err, result) => {
         console.log(result);
+        res.render("energy", 
+        {
+          title: "Energy",
+          username: result.username,
+          meter: result.meter,
+          token: result.token,
+          kilowatts: result.meterReading,
+          rating: result.rating
+        });
       })
     })
 
-    res.send("Validated");
-    res.end();
+    // res.send("Validated");
+
   }
+
+    

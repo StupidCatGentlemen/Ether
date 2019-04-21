@@ -28,14 +28,14 @@ var ethController = require('./controllers/EthController')
       ================================*/
       
       app.get("/ethlogin", ethController.ethindex);
-      
+      app.get("/energy", ethController.energy);
       
       /* ===============================
       -   POSTS
       ================================*/
       
       app.post("/loginValidation", ethController.loginValidation);
-
+      
       // view engine setup
       app.engine('hbs', hbs({
         extname: 'hbs',

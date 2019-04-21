@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Account Settings</title>
+  <style>
+
+  body{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("img/background_04.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+  }
+
+    .main-container{
+      position: absolute;
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+    .left-inner{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 20%;
+    }
+    .left-header{
+      display: flex;
+      flex: 1;
+      background: linear-gradient(36deg, rgba(10, 199, 149, .9), rgba(7, 202, 243, .9));
+      justify-content: space-around;
+      align-items: center;
+      align-content: flex-start;
+    }
+    .left-footer{
+      display: flex;
+      flex: 8;
+      overflow-y: scroll;
+      flex-wrap: wrap;
+      background: linear-gradient(36deg, rgba(230, 238, 240, .9), rgba(223, 240, 234, .9));
+    }
+    .discovery{
+      display: flex;
+      height: 24vh;
+      width: 100%;
+      background: white;
+      flex-direction: column;
+      border-bottom: 1px solid rgba(125, 125, 125, .6);
+      justify-content: center;
+      align-items: center;
+    }
+    .notification{
+      display: flex;
+      height: 16vh;
+      width: 100%;
+      background: white;
+      flex-direction: column;
+      border-bottom: 1px solid rgba(125, 125, 125, .6);
+      justify-content: center;
+      align-items: center;
+    }
+    .account{
+      display: flex;
+      height: 40vh;
+      width: 100%;
+      background: white;
+      flex-direction: column;
+      border-bottom: 1px solid rgba(125, 125, 125, .6);
+      justify-content: center;
+      align-items: center;
+    }
+    .gender{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left-footer div div button{
+      height: 90%;
+      text-align: left;
+      font-size: .7vw;
+      flex: 1;
+      color: rgba(125, 125, 125, .6);
+      background: inherit;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .left-footer div div{
+      display: flex;
+      flex: 1;
+      width: 100%;
+      border-top: .05px solid rgba(125, 125, 125, 1);
+      background: white;
+      text-align: left;
+      font-size: .7vw;
+      flex-wrap: wrap;
+      color: rgba(125, 125, 125, .6);
+      align-items: center;
+    }
+    .right-inner{
+      display: flex;
+      flex: 80%;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-card{
+      display: flex;
+      border: 2px solid black;
+      border-radius: 20px;
+      flex-direction: column;
+      height: 90%;
+      max-width: 60%;
+      min-width: 50%;
+    }
+    .header{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      flex-basis: 50%;
+      background: linear-gradient(36deg, rgba(10, 199, 149, .9), rgba(7, 202, 243, .9));
+      border-radius: 20px 20px 0px 0px;
+    }
+    .footer{
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      flex-basis: 50%;
+      background: linear-gradient(36deg, rgba(230, 238, 240, .9), rgba(223, 240, 234, .9));
+      border-radius: 0px 0px 20px 20px;
+    }
+    .info{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .bio{
+      display: flex;
+      flex: 10;
+    }
+    .photo{
+      display: flex;
+      height: 30vh;
+      width: 30vh;
+      border-radius: 100%;
+      box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+    .info h1{
+      font-size: .7vw;
+    }
+    .left-inner h1{
+      font-size: .9vw;
+      color: red;
+    }
+    .left-header h1{
+      font-size: 2vw;
+      color: white;
+    }
+    .prev{
+      cursor: pointer;
+      width: auto;
+      left: 0;
+      color: black;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      display: none;
+    }
+
+    .trade-form{
+      display: flex;
+      width: 60vw;
+      height: 60vh;
+      margin-left: 10vw;
+      margin-top: 20vh;
+      color: rgba(125, 125, 125, .6);
+    }
+
+    .trade-view-right{
+      border: 2px solid black;
+      display: flex;
+      height: 50vh;
+      width: 40vw;
+      color: rgba(125, 125, 125, .6);
+    }
+
+    .trade-view-left{
+      border: 2px solid black;
+      display: flex;
+      height: 50vh;
+      width: 40vw;
+      color: rgba(125, 125, 125, .6);
+    }
+
+  </style>
+</head>
+<body>
+  <div class = "main-container">
+    <div class = "left-inner">
+      <div class = "left-header">
+        <a class="prev">&#10094;</a>
+        <h1>My Profile</h1>
+      </div>
+      <div class = "left-footer">
+        <h1>Search</h1>
+        <div class="discovery">
+          <div class = "distance">
+            <p>Price</p>
+            <input type = "range" class = "range-slider" min="1" max="100" id="distance">
+          </div>
+          <div class = "age">
+            <p>Eco Rating</p>
+            <input type = "range" class = "range-slider" min="1" max="100" id="distance">
+          </div>
+          <div class = "gender">
+            <button class="modal-btn">Find Peers</button>
+          </div>
+        </div>
+        <h1>Wallet</h1>
+        <div class = "notification">
+          <div class = "email-notify">
+            <button class="modal-btn">ETH</button>
+          </div>
+          <div class = "push-notify">
+            <button class="modal-btn">KW</button>
+            {{kilowatts}}
+          </div>
+        </div>
+        <h1>Stats</h1>
+        <div class = "account">
+          <div class = "name">
+            <button class="modal-btn">Username</button>
+            {{username}}
+          </div>
+          <div class = "surname">
+            <button class="modal-btn">Meter Number</button>
+            {{meter}}
+          </div>
+          <div class = "username">
+            <button class="modal-btn">ETH Token</button>
+            {{token}}
+          </div>
+          <div class = "username">
+            <button class="modal-btn">Rating</button>
+            {{rating}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div>
+        <h1>Male</h1>
+        <input type="radio" name="gender" placeholder="">
+      </div>
+      <div>
+        <h1>Female</h1>
+        <input type="radio" name="gender" placeholder="">
+      </div>
+      <div>
+        <h1>Both</h1>
+        <input type = "radio" name="gender" placeholder="">
+      </div>
+    </div>
+
+    <div class="modal">
+      <div>
+        <h1>New Matches</h1>
+        <div class="onoffswitch">
+          <input type="checkbox" name="matches-notify-email" class="onoffswitch-checkbox" id="matches-notify-email" checked>
+          <label class="onoffswitch-label" for="matches-notify-email">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+      </div>
+      <div>
+        <h1>Messages</h1>
+        <div class="onoffswitch">
+          <input type="checkbox" name="messages-notify-email" class="onoffswitch-checkbox" id="messages-notify-email" checked>
+          <label class="onoffswitch-label" for="messages-notify-email">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div>
+        <h1>New Matches</h1>
+        <div class="onoffswitch">
+          <input type="checkbox" name="matches-notify-push" class="onoffswitch-checkbox" id="matches-notify-push" checked>
+          <label class="onoffswitch-label" for="matches-notify-push">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+      </div>
+      <div>
+        <h1>Messages</h1>
+        <div class="onoffswitch">
+          <input type="checkbox" name="messages-notify-push" class="onoffswitch-checkbox" id="messages-notify-push" checked>
+          <label class="onoffswitch-label" for="messages-notify-push">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal">
+      <div>
+        <h1>First Name</h1>
+        <input class = "input-element" type="text" name="name" placeholder="">
+      </div>
+      <div>
+        <h1>Last Name</h1>
+        <input class = "input-element" type="text" name="surname" placeholder="">
+      </div>
+      <div>
+        <h1>Username</h1>
+        <input class = "input-element" type="text" name="text" placeholder="">
+      </div>
+      <div>
+        <h1>Password</h1>
+        <input class = "input-element" type="password" name="password" placeholder="">
+      </div>
+    </div>
+
+    <div class="modal">
+      <div>
+        <h1>Email</h1>
+        <input class = "input-element" type="email" name="email" placeholder="">
+      </div>
+      <div>
+        <h1>Mobile</h1>
+        <input class = "input-element" type="tel" name="mobile" placeholder="">
+      </div>
+    </div>
+
+
+    <div class = "right-inner">
+        <div class = "profile-card">
+          <div class = "header">
+            <input>
+          </div>
+          <div class = "footer">
+            <input>
+          </div>
+          <button class = "button" id = "btn-edit">Edit Info</button>
+        </div>
+      </div>
+
+
+  </div>
+</body>
+
+<script>
+  var set_btn = document.getElementsByClassName('modal-btn'),
+      pro_btn_open = document.getElementById('btn-edit'),
+      pro_btn_close = document.getElementById('btn-save'),
+      profile_modal = document.getElementsByClassName('modal-profile-card')[0],
+      profile_card = document.getElementsByClassName('profile-card')[0],
+      close = document.getElementsByClassName('prev'),
+      modal = document.getElementsByClassName('modal'),
+      menu = document.getElementsByClassName('left-footer')[0];
+  menu.addEventListener('click', findClick, false);
+
+  function findClick(e){
+    for (i = 0, len = set_btn.length; i < len; i++){
+      if (e.target == set_btn[i] && i <= 2){
+        modal[i].style.display = 'flex';
+        close[0].style.display = 'block';
+        break ;
+      }
+      else if (e.target == set_btn[i] && (i >= 3 && i <= 6)){
+        modal[3].style.display = 'flex';
+        close[0].style.display = 'block';
+        break ;
+      }
+      else if (e.target == set_btn[i] && (i >= 7)){
+        modal[4].style.display = 'flex';
+        close[0].style.display = 'block';
+        break ;
+      }
+    }
+    e.stopPropagation();
+  }
+  close[0].addEventListener('click', function(event){
+    for(i = 0, len = modal.length; i < len; i++){
+      modal[i].style.display = 'none';
+    }
+    close[0].style.display = 'none';
+  });
+
+  pro_btn_open.addEventListener('click', function(event){
+    profile_card.style.display = 'none';
+    profile_modal.style.display = 'flex';
+  });
+  pro_btn_close.addEventListener('click', function(event){
+    profile_modal.style.display = 'none';
+    profile_card.style.display = 'flex';
+  });
+</script>
+
+</html>
